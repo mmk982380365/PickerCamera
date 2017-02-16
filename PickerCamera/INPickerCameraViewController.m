@@ -327,7 +327,7 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.topView setBtnTitle:@"后置" type:CameraTopBtnTypePosition];
-                
+                [self.topView setFlashBtnHidden:NO];
                 
                 
             });
@@ -338,6 +338,7 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.topView setBtnTitle:@"前置" type:CameraTopBtnTypePosition];
+                [self.topView setFlashBtnHidden:YES];
             });
             
             
