@@ -1,0 +1,570 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB9ED8181E4D5F6300175738 /* INPickerCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9ED8171E4D5F6300175738 /* INPickerCameraViewController.m */; };
+		CB9ED81B1E4D629800175738 /* INPickerCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9ED81A1E4D629800175738 /* INPickerCamera.m */; };
+		CB9ED81E1E4D9E5300175738 /* INCameraCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9ED81D1E4D9E5300175738 /* INCameraCursor.m */; };
+		CB9ED8211E4DA1B900175738 /* INCameraTop.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9ED8201E4DA1B900175738 /* INCameraTop.m */; };
+		CB9ED8241E4DAEF300175738 /* INCameraTakePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9ED8231E4DAEF300175738 /* INCameraTakePhotosView.m */; };
+		CB9ED8271E4DBAF400175738 /* INCameraPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9ED8261E4DBAF400175738 /* INCameraPreviewView.m */; };
+		CB9ED82A1E4DD45B00175738 /* INCameraMoviePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9ED8291E4DD45B00175738 /* INCameraMoviePreviewView.m */; };
+		CBDA50A41E4ACF1C0031CD92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDA50A31E4ACF1C0031CD92 /* main.m */; };
+		CBDA50A71E4ACF1C0031CD92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDA50A61E4ACF1C0031CD92 /* AppDelegate.m */; };
+		CBDA50AA1E4ACF1C0031CD92 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDA50A91E4ACF1C0031CD92 /* ViewController.m */; };
+		CBDA50AD1E4ACF1C0031CD92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBDA50AB1E4ACF1C0031CD92 /* Main.storyboard */; };
+		CBDA50AF1E4ACF1C0031CD92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBDA50AE1E4ACF1C0031CD92 /* Assets.xcassets */; };
+		CBDA50B21E4ACF1C0031CD92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBDA50B01E4ACF1C0031CD92 /* LaunchScreen.storyboard */; };
+		CBDA50BD1E4ACF1C0031CD92 /* PickerCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDA50BC1E4ACF1C0031CD92 /* PickerCameraTests.m */; };
+		CBE3253D1E515C1F00B05F67 /* INCameraFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE3253C1E515C1F00B05F67 /* INCameraFilter.m */; };
+		CBE3253F1E51618600B05F67 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CBE3253E1E51618600B05F67 /* Podfile */; };
+		CBE325421E5187DD00B05F67 /* INCameraZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE325411E5187DD00B05F67 /* INCameraZoomView.m */; };
+		D8D217185A29BBD54983A529 /* libPods-PickerCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E381CCD72898DF9582515F /* libPods-PickerCamera.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CBDA50B91E4ACF1C0031CD92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBDA50971E4ACF1C0031CD92 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBDA509E1E4ACF1C0031CD92;
+			remoteInfo = PickerCamera;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10E381CCD72898DF9582515F /* libPods-PickerCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PickerCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9780DBA775699328F9E20020 /* Pods-PickerCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerCamera.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickerCamera/Pods-PickerCamera.release.xcconfig"; sourceTree = "<group>"; };
+		CB9ED8161E4D5F6300175738 /* INPickerCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPickerCameraViewController.h; sourceTree = "<group>"; };
+		CB9ED8171E4D5F6300175738 /* INPickerCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INPickerCameraViewController.m; sourceTree = "<group>"; };
+		CB9ED8191E4D629800175738 /* INPickerCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INPickerCamera.h; sourceTree = "<group>"; };
+		CB9ED81A1E4D629800175738 /* INPickerCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INPickerCamera.m; sourceTree = "<group>"; };
+		CB9ED81C1E4D9E5200175738 /* INCameraCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INCameraCursor.h; sourceTree = "<group>"; };
+		CB9ED81D1E4D9E5300175738 /* INCameraCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INCameraCursor.m; sourceTree = "<group>"; };
+		CB9ED81F1E4DA1B900175738 /* INCameraTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INCameraTop.h; sourceTree = "<group>"; };
+		CB9ED8201E4DA1B900175738 /* INCameraTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INCameraTop.m; sourceTree = "<group>"; };
+		CB9ED8221E4DAEF300175738 /* INCameraTakePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INCameraTakePhotosView.h; sourceTree = "<group>"; };
+		CB9ED8231E4DAEF300175738 /* INCameraTakePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INCameraTakePhotosView.m; sourceTree = "<group>"; };
+		CB9ED8251E4DBAF400175738 /* INCameraPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INCameraPreviewView.h; sourceTree = "<group>"; };
+		CB9ED8261E4DBAF400175738 /* INCameraPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INCameraPreviewView.m; sourceTree = "<group>"; };
+		CB9ED8281E4DD45B00175738 /* INCameraMoviePreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INCameraMoviePreviewView.h; sourceTree = "<group>"; };
+		CB9ED8291E4DD45B00175738 /* INCameraMoviePreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INCameraMoviePreviewView.m; sourceTree = "<group>"; };
+		CBDA509F1E4ACF1C0031CD92 /* PickerCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickerCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBDA50A31E4ACF1C0031CD92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CBDA50A51E4ACF1C0031CD92 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CBDA50A61E4ACF1C0031CD92 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CBDA50A81E4ACF1C0031CD92 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CBDA50A91E4ACF1C0031CD92 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CBDA50AC1E4ACF1C0031CD92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CBDA50AE1E4ACF1C0031CD92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBDA50B11E4ACF1C0031CD92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CBDA50B31E4ACF1C0031CD92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBDA50B81E4ACF1C0031CD92 /* PickerCameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickerCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBDA50BC1E4ACF1C0031CD92 /* PickerCameraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickerCameraTests.m; sourceTree = "<group>"; };
+		CBDA50BE1E4ACF1C0031CD92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBE3253B1E515C1F00B05F67 /* INCameraFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INCameraFilter.h; sourceTree = "<group>"; };
+		CBE3253C1E515C1F00B05F67 /* INCameraFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INCameraFilter.m; sourceTree = "<group>"; };
+		CBE3253E1E51618600B05F67 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		CBE325401E5187DD00B05F67 /* INCameraZoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INCameraZoomView.h; sourceTree = "<group>"; };
+		CBE325411E5187DD00B05F67 /* INCameraZoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INCameraZoomView.m; sourceTree = "<group>"; };
+		EEB72040850591013FA62A3A /* Pods-PickerCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerCamera/Pods-PickerCamera.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBDA509C1E4ACF1C0031CD92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8D217185A29BBD54983A529 /* libPods-PickerCamera.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBDA50B51E4ACF1C0031CD92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		54187010AAD1552962678D33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10E381CCD72898DF9582515F /* libPods-PickerCamera.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		696D2783BE63CFDFD02EA1AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EEB72040850591013FA62A3A /* Pods-PickerCamera.debug.xcconfig */,
+				9780DBA775699328F9E20020 /* Pods-PickerCamera.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CBDA50961E4ACF1C0031CD92 = {
+			isa = PBXGroup;
+			children = (
+				CBE3253E1E51618600B05F67 /* Podfile */,
+				CBDA50A11E4ACF1C0031CD92 /* PickerCamera */,
+				CBDA50BB1E4ACF1C0031CD92 /* PickerCameraTests */,
+				CBDA50A01E4ACF1C0031CD92 /* Products */,
+				696D2783BE63CFDFD02EA1AA /* Pods */,
+				54187010AAD1552962678D33 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CBDA50A01E4ACF1C0031CD92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBDA509F1E4ACF1C0031CD92 /* PickerCamera.app */,
+				CBDA50B81E4ACF1C0031CD92 /* PickerCameraTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBDA50A11E4ACF1C0031CD92 /* PickerCamera */ = {
+			isa = PBXGroup;
+			children = (
+				CB9ED81C1E4D9E5200175738 /* INCameraCursor.h */,
+				CB9ED81D1E4D9E5300175738 /* INCameraCursor.m */,
+				CB9ED8251E4DBAF400175738 /* INCameraPreviewView.h */,
+				CB9ED8261E4DBAF400175738 /* INCameraPreviewView.m */,
+				CB9ED8281E4DD45B00175738 /* INCameraMoviePreviewView.h */,
+				CB9ED8291E4DD45B00175738 /* INCameraMoviePreviewView.m */,
+				CB9ED81F1E4DA1B900175738 /* INCameraTop.h */,
+				CB9ED8201E4DA1B900175738 /* INCameraTop.m */,
+				CB9ED8191E4D629800175738 /* INPickerCamera.h */,
+				CB9ED81A1E4D629800175738 /* INPickerCamera.m */,
+				CB9ED8221E4DAEF300175738 /* INCameraTakePhotosView.h */,
+				CB9ED8231E4DAEF300175738 /* INCameraTakePhotosView.m */,
+				CBE3253B1E515C1F00B05F67 /* INCameraFilter.h */,
+				CBE3253C1E515C1F00B05F67 /* INCameraFilter.m */,
+				CBE325401E5187DD00B05F67 /* INCameraZoomView.h */,
+				CBE325411E5187DD00B05F67 /* INCameraZoomView.m */,
+				CB9ED8161E4D5F6300175738 /* INPickerCameraViewController.h */,
+				CB9ED8171E4D5F6300175738 /* INPickerCameraViewController.m */,
+				CBDA50A51E4ACF1C0031CD92 /* AppDelegate.h */,
+				CBDA50A61E4ACF1C0031CD92 /* AppDelegate.m */,
+				CBDA50A81E4ACF1C0031CD92 /* ViewController.h */,
+				CBDA50A91E4ACF1C0031CD92 /* ViewController.m */,
+				CBDA50AB1E4ACF1C0031CD92 /* Main.storyboard */,
+				CBDA50AE1E4ACF1C0031CD92 /* Assets.xcassets */,
+				CBDA50B01E4ACF1C0031CD92 /* LaunchScreen.storyboard */,
+				CBDA50B31E4ACF1C0031CD92 /* Info.plist */,
+				CBDA50A21E4ACF1C0031CD92 /* Supporting Files */,
+			);
+			path = PickerCamera;
+			sourceTree = "<group>";
+		};
+		CBDA50A21E4ACF1C0031CD92 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBDA50A31E4ACF1C0031CD92 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CBDA50BB1E4ACF1C0031CD92 /* PickerCameraTests */ = {
+			isa = PBXGroup;
+			children = (
+				CBDA50BC1E4ACF1C0031CD92 /* PickerCameraTests.m */,
+				CBDA50BE1E4ACF1C0031CD92 /* Info.plist */,
+			);
+			path = PickerCameraTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBDA509E1E4ACF1C0031CD92 /* PickerCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBDA50C11E4ACF1C0031CD92 /* Build configuration list for PBXNativeTarget "PickerCamera" */;
+			buildPhases = (
+				35AA8D95D671CA11929FAB51 /* [CP] Check Pods Manifest.lock */,
+				CBDA509B1E4ACF1C0031CD92 /* Sources */,
+				CBDA509C1E4ACF1C0031CD92 /* Frameworks */,
+				CBDA509D1E4ACF1C0031CD92 /* Resources */,
+				611732672454D83845CAA5CC /* [CP] Embed Pods Frameworks */,
+				FE27207A5139A3C6E001C209 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PickerCamera;
+			productName = PickerCamera;
+			productReference = CBDA509F1E4ACF1C0031CD92 /* PickerCamera.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBDA50B71E4ACF1C0031CD92 /* PickerCameraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBDA50C41E4ACF1C0031CD92 /* Build configuration list for PBXNativeTarget "PickerCameraTests" */;
+			buildPhases = (
+				CBDA50B41E4ACF1C0031CD92 /* Sources */,
+				CBDA50B51E4ACF1C0031CD92 /* Frameworks */,
+				CBDA50B61E4ACF1C0031CD92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBDA50BA1E4ACF1C0031CD92 /* PBXTargetDependency */,
+			);
+			name = PickerCameraTests;
+			productName = PickerCameraTests;
+			productReference = CBDA50B81E4ACF1C0031CD92 /* PickerCameraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBDA50971E4ACF1C0031CD92 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = IN;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = MaMingkun;
+				TargetAttributes = {
+					CBDA509E1E4ACF1C0031CD92 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = S429W65P38;
+						ProvisioningStyle = Manual;
+					};
+					CBDA50B71E4ACF1C0031CD92 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CBDA509E1E4ACF1C0031CD92;
+					};
+				};
+			};
+			buildConfigurationList = CBDA509A1E4ACF1C0031CD92 /* Build configuration list for PBXProject "PickerCamera" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CBDA50961E4ACF1C0031CD92;
+			productRefGroup = CBDA50A01E4ACF1C0031CD92 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBDA509E1E4ACF1C0031CD92 /* PickerCamera */,
+				CBDA50B71E4ACF1C0031CD92 /* PickerCameraTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBDA509D1E4ACF1C0031CD92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBDA50B21E4ACF1C0031CD92 /* LaunchScreen.storyboard in Resources */,
+				CBDA50AF1E4ACF1C0031CD92 /* Assets.xcassets in Resources */,
+				CBE3253F1E51618600B05F67 /* Podfile in Resources */,
+				CBDA50AD1E4ACF1C0031CD92 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBDA50B61E4ACF1C0031CD92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35AA8D95D671CA11929FAB51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		611732672454D83845CAA5CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickerCamera/Pods-PickerCamera-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE27207A5139A3C6E001C209 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickerCamera/Pods-PickerCamera-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBDA509B1E4ACF1C0031CD92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9ED8241E4DAEF300175738 /* INCameraTakePhotosView.m in Sources */,
+				CB9ED8271E4DBAF400175738 /* INCameraPreviewView.m in Sources */,
+				CB9ED81B1E4D629800175738 /* INPickerCamera.m in Sources */,
+				CBDA50AA1E4ACF1C0031CD92 /* ViewController.m in Sources */,
+				CB9ED82A1E4DD45B00175738 /* INCameraMoviePreviewView.m in Sources */,
+				CBDA50A71E4ACF1C0031CD92 /* AppDelegate.m in Sources */,
+				CB9ED8181E4D5F6300175738 /* INPickerCameraViewController.m in Sources */,
+				CBDA50A41E4ACF1C0031CD92 /* main.m in Sources */,
+				CBE3253D1E515C1F00B05F67 /* INCameraFilter.m in Sources */,
+				CBE325421E5187DD00B05F67 /* INCameraZoomView.m in Sources */,
+				CB9ED81E1E4D9E5300175738 /* INCameraCursor.m in Sources */,
+				CB9ED8211E4DA1B900175738 /* INCameraTop.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBDA50B41E4ACF1C0031CD92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBDA50BD1E4ACF1C0031CD92 /* PickerCameraTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBDA50BA1E4ACF1C0031CD92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBDA509E1E4ACF1C0031CD92 /* PickerCamera */;
+			targetProxy = CBDA50B91E4ACF1C0031CD92 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CBDA50AB1E4ACF1C0031CD92 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBDA50AC1E4ACF1C0031CD92 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CBDA50B01E4ACF1C0031CD92 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBDA50B11E4ACF1C0031CD92 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CBDA50BF1E4ACF1C0031CD92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CBDA50C01E4ACF1C0031CD92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CBDA50C21E4ACF1C0031CD92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEB72040850591013FA62A3A /* Pods-PickerCamera.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S429W65P38;
+				INFOPLIST_FILE = PickerCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.xunzong.era.EarthInstrusion.PickerCamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8990fb34-91b9-4799-a2c5-8160249d8ce3";
+				PROVISIONING_PROFILE_SPECIFIER = 1206all;
+			};
+			name = Debug;
+		};
+		CBDA50C31E4ACF1C0031CD92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9780DBA775699328F9E20020 /* Pods-PickerCamera.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = PickerCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.xunzong.era.EarthInstrusion.PickerCamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CBDA50C51E4ACF1C0031CD92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PickerCameraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.xunzong.era.EarthInstrusion.PickerCameraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PickerCamera.app/PickerCamera";
+			};
+			name = Debug;
+		};
+		CBDA50C61E4ACF1C0031CD92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PickerCameraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.xunzong.era.EarthInstrusion.PickerCameraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PickerCamera.app/PickerCamera";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBDA509A1E4ACF1C0031CD92 /* Build configuration list for PBXProject "PickerCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBDA50BF1E4ACF1C0031CD92 /* Debug */,
+				CBDA50C01E4ACF1C0031CD92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBDA50C11E4ACF1C0031CD92 /* Build configuration list for PBXNativeTarget "PickerCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBDA50C21E4ACF1C0031CD92 /* Debug */,
+				CBDA50C31E4ACF1C0031CD92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBDA50C41E4ACF1C0031CD92 /* Build configuration list for PBXNativeTarget "PickerCameraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBDA50C51E4ACF1C0031CD92 /* Debug */,
+				CBDA50C61E4ACF1C0031CD92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBDA50971E4ACF1C0031CD92 /* Project object */;
+}
