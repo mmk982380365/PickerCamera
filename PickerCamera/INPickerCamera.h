@@ -14,16 +14,16 @@
 @class INPickerCamera;
 @protocol INPickerCameraDelegate <NSObject>
 
--(void)cameraOutputVideo:(AVCaptureOutput *)captureOutput didOutputImageBuffer:(CIImage *)sourceImage fromConnection:(AVCaptureConnection *)connection;
-
--(void)cameraOutputAudio:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection;
+//-(void)cameraOutputVideo:(AVCaptureOutput *)captureOutput didOutputImageBuffer:(CIImage *)sourceImage fromConnection:(AVCaptureConnection *)connection;
+//
+//-(void)cameraOutputAudio:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection;
 
 -(void)cameraReadyToRecord:(INPickerCamera *)camera;
 -(void)cameraFinishToRecord:(INPickerCamera *)camera;
 
 @end
 
-@interface INPickerCamera : NSObject <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate, AVCapturePhotoCaptureDelegate>
+@interface INPickerCamera : NSObject <AVCaptureFileOutputRecordingDelegate, AVCapturePhotoCaptureDelegate>
 {
     dispatch_queue_t audioWritingQueue;
     dispatch_queue_t videoWritingQueue;
@@ -41,23 +41,26 @@
 
 @property (nonatomic, strong) AVCaptureOutput *capturePhotoOutput;
 
-@property (nonatomic, strong) AVCaptureVideoDataOutput *captureVideoOutput;
+@property (nonatomic, strong) AVCaptureMovieFileOutput *captureMovieOutput;
 
-@property (nonatomic, strong) AVCaptureAudioDataOutput *captureAudioOutput;
+//
+//@property (nonatomic, strong) AVCaptureVideoDataOutput *captureVideoOutput;
+//
+//@property (nonatomic, strong) AVCaptureAudioDataOutput *captureAudioOutput;
 
-#pragma mark - writer
-
-@property (nonatomic, strong) AVAssetWriter *assetWriter;
-
-@property (nonatomic, strong) AVAssetWriterInput *videoWriterInput;
-
-@property (nonatomic, strong) AVAssetWriterInput *audioWriterInput;
-
-@property (nonatomic, strong) AVCaptureConnection *audioConnection;
-
-@property (nonatomic, strong) AVCaptureConnection *videoConnection;
-
-@property (nonatomic, strong) AVAssetWriterInputPixelBufferAdaptor *bufferAdaptor;
+//#pragma mark - writer
+//
+//@property (nonatomic, strong) AVAssetWriter *assetWriter;
+//
+//@property (nonatomic, strong) AVAssetWriterInput *videoWriterInput;
+//
+//@property (nonatomic, strong) AVAssetWriterInput *audioWriterInput;
+//
+//@property (nonatomic, strong) AVCaptureConnection *audioConnection;
+//
+//@property (nonatomic, strong) AVCaptureConnection *videoConnection;
+//
+//@property (nonatomic, strong) AVAssetWriterInputPixelBufferAdaptor *bufferAdaptor;
 
 -(void)setupSession;
 

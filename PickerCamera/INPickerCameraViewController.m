@@ -24,15 +24,16 @@
 
 {
     CGFloat videoDuration;
-    CIContext *ciContext;
-    EAGLContext *context;
-    CGRect previewBounds;
+//    CIContext *ciContext;
+//    EAGLContext *context;
+//    CGRect previewBounds;
     CGFloat beginGestureScele;
     CGFloat effectiveScale;
 }
 
 @property (nonatomic, strong) INPickerCamera *camera;
-@property (nonatomic, strong) GLKView *previewView;
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
+//@property (nonatomic, strong) GLKView *previewView;
 @property (nonatomic, strong) INCameraCursor *focusCursor;
 @property (nonatomic, strong) INCameraTop *topView;
 @property (nonatomic, strong) INCameraTakePhotosView *takePhotosView;
@@ -93,6 +94,7 @@
     [super viewDidAppear:animated];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self.camera setupSession];
+        [self setupPreviewView];
         [self.camera startSession];
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -110,29 +112,42 @@
     [self.camera stopSession];
 }
 
+-(void)setupPreviewView{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.camera.session];
+        self.previewLayer.frame = self.view.bounds;
+        self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        [self.view.layer insertSublayer:self.previewLayer atIndex:0];
+    });
+    
+    
+}
+
 -(void)setupView{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
-        ciContext = [CIContext contextWithEAGLContext:context options:@{
-                                                                        kCIContextWorkingColorSpace: [NSNull null]
-                                                                        }];
-        self.camera.ciContext = ciContext;
+//        context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
+//        ciContext = [CIContext contextWithEAGLContext:context options:@{
+//                                                                        kCIContextWorkingColorSpace: [NSNull null]
+//                                                                        }];
+//        self.camera.ciContext = ciContext;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             self.view.opaque = NO;
             
-            self.previewView = [[GLKView alloc] initWithFrame:self.view.bounds context:context];
-            self.previewView.enableSetNeedsDisplay = NO;
             
-            self.previewView.transform = CGAffineTransformMakeRotation(M_PI_2);
-            self.previewView.frame = self.view.bounds;
+//            self.previewView = [[GLKView alloc] initWithFrame:self.view.bounds context:context];
+//            self.previewView.enableSetNeedsDisplay = NO;
+//            
+//            self.previewView.transform = CGAffineTransformMakeRotation(M_PI_2);
+//            self.previewView.frame = self.view.bounds;
+//            
+//            [self.view addSubview:self.previewView];
             
-            [self.view addSubview:self.previewView];
-            
-            [self.previewView bindDrawable];
-            previewBounds = CGRectZero;
-            previewBounds.size.width = self.previewView.drawableWidth;
-            previewBounds.size.height = self.previewView.drawableHeight;
+//            [self.previewView bindDrawable];
+//            previewBounds = CGRectZero;
+//            previewBounds.size.width = self.previewView.drawableWidth;
+//            previewBounds.size.height = self.previewView.drawableHeight;
             
             self.topView = [[INCameraTop alloc] init];
             self.topView.delegate = self;
@@ -169,10 +184,10 @@
             
             self.pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchAction:)];
             self.pinchRecognizer.delegate = self;
-            [self.previewView addGestureRecognizer:self.pinchRecognizer];
+            [self.view addGestureRecognizer:self.pinchRecognizer];
             
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
-            [self.previewView addGestureRecognizer:tap];
+            [self.view addGestureRecognizer:tap];
             
             [tap requireGestureRecognizerToFail:self.pinchRecognizer];
             
@@ -328,7 +343,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.topView setBtnTitle:@"后置" type:CameraTopBtnTypePosition];
                 
-                
+                [self.topView setFlashBtnHidden:NO];
                 
             });
             
@@ -338,6 +353,7 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.topView setBtnTitle:@"前置" type:CameraTopBtnTypePosition];
+                [self.topView setFlashBtnHidden:YES];
             });
             
             
@@ -352,7 +368,7 @@
             animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
             animation.type = @"oglFlip";
             animation.subtype = toPosition == AVCaptureDevicePositionFront ? kCATransitionFromLeft : kCATransitionFromRight;
-            [self.previewView.layer addAnimation:animation forKey:@"anims"];
+            [self.previewLayer addAnimation:animation forKey:@"anims"];
         });
         
         
@@ -398,13 +414,13 @@
 }
 
 -(void)endRecordingVideo:(INCameraTakePhotosView *)takeView{
-    if (self.camera.isRecording) {
+//    if (self.camera.isRecording) {
         [self removeTimer];
         
         [self.camera stopRecrding];
 //        [self.camera stopSession];
         self.descLabel.text = @"请稍后";
-    }
+//    }
 }
 
 -(void)didTriggerTakePhotos:(INCameraTakePhotosView *)takeView{
@@ -441,6 +457,7 @@ static CGFloat sourceAspect;
 static CGFloat previewAspect;
 //static CIImage *sourceImage;
 
+/*
 -(void)cameraOutputVideo:(AVCaptureOutput *)captureOutput didOutputImageBuffer:(CIImage *)sourceImage fromConnection:(AVCaptureConnection *)connection{
     
     
@@ -495,6 +512,7 @@ static CGFloat previewAspect;
     
     
 }
+*/
 
 -(INCameraCursor *)focusCursor {
     if (_focusCursor == nil) {

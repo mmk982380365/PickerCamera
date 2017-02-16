@@ -85,24 +85,27 @@
         return;
     }
     
-    if ([UIDevice currentDevice].systemVersion.floatValue < 10.0) {
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 10.0) {
         self.capturePhotoOutput = [[AVCapturePhotoOutput alloc] init];
     } else {
         self.capturePhotoOutput = [[AVCaptureStillImageOutput alloc] init];
     }
     
-    self.captureVideoOutput = [[AVCaptureVideoDataOutput alloc] init];
-    self.captureVideoOutput.alwaysDiscardsLateVideoFrames = true;
+    self.captureMovieOutput = [[AVCaptureMovieFileOutput alloc] init];
     
-    dispatch_queue_t videoQueue = dispatch_queue_create("com.video.dataoutput", NULL);
-    [self.captureVideoOutput setSampleBufferDelegate:self queue:videoQueue];
-    self.captureVideoOutput.videoSettings = @{
-                                              (NSString *)kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_32BGRA),
-                                              };
     
-    self.captureAudioOutput = [[AVCaptureAudioDataOutput alloc] init];
-    dispatch_queue_t audioQueue = dispatch_queue_create("com.audio.dataoutput", NULL);
-    [self.captureAudioOutput setSampleBufferDelegate:self queue:audioQueue];
+//    self.captureVideoOutput = [[AVCaptureVideoDataOutput alloc] init];
+//    self.captureVideoOutput.alwaysDiscardsLateVideoFrames = true;
+//    
+//    dispatch_queue_t videoQueue = dispatch_queue_create("com.video.dataoutput", NULL);
+//    [self.captureVideoOutput setSampleBufferDelegate:self queue:videoQueue];
+//    self.captureVideoOutput.videoSettings = @{
+//                                              (NSString *)kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_32BGRA),
+//                                              };
+//    
+//    self.captureAudioOutput = [[AVCaptureAudioDataOutput alloc] init];
+//    dispatch_queue_t audioQueue = dispatch_queue_create("com.audio.dataoutput", NULL);
+//    [self.captureAudioOutput setSampleBufferDelegate:self queue:audioQueue];
     
     if ([session canAddInput:self.captureAudioInput]) {
         [session addInput:self.captureAudioInput];
@@ -111,19 +114,23 @@
         [session addInput:self.captureVideoInput];
     }
     
-    if ([session canAddOutput:self.captureVideoOutput]) {
-        [session addOutput:self.captureVideoOutput];
+    if ([session canAddOutput:self.captureMovieOutput]) {
+        [session addOutput:self.captureMovieOutput];
     }
-    if ([session canAddOutput:self.captureAudioOutput]) {
-        [session addOutput:self.captureAudioOutput];
-    }
+    
+//    if ([session canAddOutput:self.captureVideoOutput]) {
+//        [session addOutput:self.captureVideoOutput];
+//    }
+//    if ([session canAddOutput:self.captureAudioOutput]) {
+//        [session addOutput:self.captureAudioOutput];
+//    }
     if ([session canAddOutput:self.capturePhotoOutput]) {
         [session addOutput:self.capturePhotoOutput];
     }
     
-    self.audioConnection = [self.captureAudioOutput connectionWithMediaType:AVMediaTypeAudio];
-    self.videoConnection = [self.captureVideoOutput connectionWithMediaType:AVMediaTypeVideo];
-    
+//    self.audioConnection = [self.captureAudioOutput connectionWithMediaType:AVMediaTypeAudio];
+//    self.videoConnection = [self.captureVideoOutput connectionWithMediaType:AVMediaTypeVideo];
+//    
     
     [session commitConfiguration];
     
@@ -138,7 +145,7 @@
 }
 
 -(CGFloat)videoMaxScaleAndCropFactor{
-    return [self.captureVideoOutput connectionWithMediaType:AVMediaTypeVideo].videoMaxScaleAndCropFactor;
+    return [self.captureMovieOutput connectionWithMediaType:AVMediaTypeVideo].videoMaxScaleAndCropFactor;
 }
 
 -(void)setVideoZoomFactor:(CGFloat)videoZoomFactor{
@@ -218,7 +225,7 @@
                 self.captureVideoInput = newInput;
             }
            
-            self.videoConnection = [self.captureVideoOutput connectionWithMediaType:AVMediaTypeVideo];
+//            self.videoConnection = [self.captureVideoOutput connectionWithMediaType:AVMediaTypeVideo];
             
             [session commitConfiguration];
             
@@ -258,7 +265,7 @@
         __autoreleasing NSError *error;
         if ([device lockForConfiguration:&error]) {
             [self.captureVideoInput.device.activeFormat isVideoStabilizationModeSupported:stabilizationMode];
-            self.videoConnection.preferredVideoStabilizationMode = stabilizationMode;
+            [self.captureMovieOutput connectionWithMediaType:AVMediaTypeVideo].preferredVideoStabilizationMode = stabilizationMode;
             _stabilizationMode = stabilizationMode;
             [device unlockForConfiguration];
         }
@@ -360,7 +367,20 @@
 }
 
 -(void)startRecording {
-    @synchronized (self) {
+        
+        
+        AVCaptureConnection *connection = [self.captureMovieOutput connectionWithMediaType:AVMediaTypeVideo];
+        
+        if (connection == nil) {
+            NSLog(@"录像失败");
+            return;
+        }
+        
+        if (!self.captureMovieOutput.isRecording) {
+            [self.captureMovieOutput startRecordingToOutputFileURL:[INPickerCamera movieFileUrl] recordingDelegate:self];
+        }
+        
+        /*
         if (!self.isRecording) {
             __autoreleasing NSError *error;
             [[NSFileManager defaultManager] removeItemAtPath:[INPickerCamera movieFilePath] error:&error];
@@ -390,14 +410,23 @@
             self.bufferAdaptor = [AVAssetWriterInputPixelBufferAdaptor assetWriterInputPixelBufferAdaptorWithAssetWriterInput:self.videoWriterInput sourcePixelBufferAttributes:nil];
             
             self.isRecording = YES;
-        }
-    }
+        }*/
+    
 }
 
 -(void)stopRecrding {
-    @synchronized (self) {
+        
+        if (self.captureMovieOutput.isRecording) {
+            [self.captureMovieOutput stopRecording];
+        }
+        
+        /*
+        
         if (self.isRecording) {
             self.isRecording = NO;
+            
+            
+            
             [self.videoWriterInput markAsFinished];
             [self.audioWriterInput markAsFinished];
             __weak typeof(self) ws = self;
@@ -412,7 +441,10 @@
                 });
             }];
         }
-    }
+        
+        */
+        
+    
 }
 
 #pragma mark - photo output delegate
@@ -450,6 +482,26 @@
 
 #pragma mark - video audio data ountput delegate
 
+-(void)captureOutput:(AVCaptureFileOutput *)captureOutput didStartRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray *)connections{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.delegate && [self.delegate respondsToSelector:@selector(cameraReadyToRecord:)]) {
+            [self.delegate cameraReadyToRecord:self];
+        }
+    });
+}
+
+-(void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        NSLog(@"finish record");
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(cameraFinishToRecord:)]) {
+            [self.delegate cameraFinishToRecord:self];
+        }
+    });
+}
+
+/*
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
     @synchronized (self) {
         
@@ -512,6 +564,8 @@
     }
     
 }
+*/
+
 
 +(NSString *)movieFilePath{
     return [NSTemporaryDirectory() stringByAppendingString:@"tempMovie.mov"];
