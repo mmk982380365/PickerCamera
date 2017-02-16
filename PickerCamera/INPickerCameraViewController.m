@@ -300,6 +300,7 @@
         [self.delegate cameraControllerDidCancel:self];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self removeTimer];
 }
 
 -(void)flashModeOnClick:(INCameraTop *)topView mode:(CameraFlashMode)flashMode{
@@ -370,10 +371,12 @@
     if (previewView == self.photoPreviewer) {
         if (self.delegate && [self.delegate conformsToProtocol:@protocol(INPickerCameraViewControllerDelegate)] && [self.delegate respondsToSelector:@selector(cameraController:didFinishSelectPhotos:)]) {
             [self.delegate cameraController:self didFinishSelectPhotos:previewView.image];
+            [self removeTimer];
         }
     } else if (previewView == self.moviePreviewer) {
         if (self.delegate && [self.delegate conformsToProtocol:@protocol(INPickerCameraViewControllerDelegate)] && [self.delegate respondsToSelector:@selector(cameraController:didFinishRecordVideoWithVideoPath:)]) {
             [self.delegate cameraController:self didFinishRecordVideoWithVideoPath:[INPickerCamera movieFileUrl]];
+            [self removeTimer];
         }
     }
     [self dismissViewControllerAnimated:YES completion:nil];
