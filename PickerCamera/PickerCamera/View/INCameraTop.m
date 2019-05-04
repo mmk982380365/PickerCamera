@@ -26,40 +26,40 @@
 
 - (instancetype)init
 {
-    self = [super initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 64)];
+    self = [super initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44 + [UIApplication sharedApplication].statusBarFrame.size.height)];
     if (self) {
         _flashMode = CameraFlashModeOff;
         self.cancelBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.cancelBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.cancelBtn setTitle:@"返回" forState:UIControlStateNormal];
-        self.cancelBtn.frame = CGRectMake(5, StatusBarHeight, 65, 64 - StatusBarHeight);
+        self.cancelBtn.frame = CGRectMake(5, StatusBarHeight, 65, self.frame.size.height - StatusBarHeight);
         
         self.flashModeBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.flashModeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.flashModeBtn setTitle:@"闪光" forState:UIControlStateNormal];
-        self.flashModeBtn.frame = CGRectMake(self.frame.size.width - 65 * 2 - 5 * 2, StatusBarHeight, 65, 64 - StatusBarHeight);
+        self.flashModeBtn.frame = CGRectMake(self.frame.size.width - 65 * 2 - 5 * 2, StatusBarHeight, 65, self.frame.size.height - StatusBarHeight);
         
         self.positionBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.positionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.positionBtn setTitle:@"后置" forState:UIControlStateNormal];
-        self.positionBtn.frame = CGRectMake(self.frame.size.width - 65 * 1.0 - 2 * 1.0, StatusBarHeight, 65, 64 - StatusBarHeight);
+        self.positionBtn.frame = CGRectMake(self.frame.size.width - 65 * 1.0 - 2 * 1.0, StatusBarHeight, 65, self.frame.size.height - StatusBarHeight);
         
         self.flashOff = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        self.flashOff.frame = CGRectMake(CGRectGetMinX(self.flashModeBtn.frame) - 5 - 45, StatusBarHeight, 45, 64 - StatusBarHeight);
+        self.flashOff.frame = CGRectMake(CGRectGetMinX(self.flashModeBtn.frame) - 5 - 45, StatusBarHeight, 45, self.frame.size.height - StatusBarHeight);
         [self.flashOff setTitle:@"关闭" forState:UIControlStateNormal];
         self.flashOff.titleLabel.font = [UIFont systemFontOfSize:12];
         [self.flashOff setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.flashOff.alpha = 0;
         
         self.flashOn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        self.flashOn.frame = CGRectMake(CGRectGetMinX(self.flashModeBtn.frame) - 5 * 2 - 45 * 2, StatusBarHeight, 45, 64 - StatusBarHeight);
+        self.flashOn.frame = CGRectMake(CGRectGetMinX(self.flashModeBtn.frame) - 5 * 2 - 45 * 2, StatusBarHeight, 45, self.frame.size.height - StatusBarHeight);
         [self.flashOn setTitle:@"打开" forState:UIControlStateNormal];
         self.flashOn.titleLabel.font = [UIFont systemFontOfSize:12];
         [self.flashOn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.flashOn.alpha = 0;
         
         self.flashAuto = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        self.flashAuto.frame = CGRectMake(CGRectGetMinX(self.flashModeBtn.frame) - 5 * 3 - 45 * 3, StatusBarHeight, 45, 64 - StatusBarHeight);
+        self.flashAuto.frame = CGRectMake(CGRectGetMinX(self.flashModeBtn.frame) - 5 * 3 - 45 * 3, StatusBarHeight, 45, self.frame.size.height - StatusBarHeight);
         [self.flashAuto setTitle:@"自动" forState:UIControlStateNormal];
         self.flashAuto.titleLabel.font = [UIFont systemFontOfSize:12];
         [self.flashAuto setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

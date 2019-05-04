@@ -59,7 +59,7 @@
     if (self) {
         self.camera = [[INPickerCamera alloc] init];
         self.camera.delegate = self;
-//        self.filterArray = [NSMutableArray arrayWithCapacity:0];
+        //        self.filterArray = [NSMutableArray arrayWithCapacity:0];
     }
     return self;
 }
@@ -69,23 +69,6 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor blackColor];
     [self setupView];
-    
-//    
-//    INCameraFilter *filter1 = [[INCameraFilter alloc] initWithFilterName:@"CIVignetteEffect"];
-//    filter1.center = CGPointMake(1920 / 2.0, 1080 / 2.0);
-//    filter1.radius = 1920 / 2.0;
-//    [self.filterArray addObject:filter1];
-//    
-//    INCameraFilter *filter2 = [[INCameraFilter alloc] initWithFilterName:@"CIPhotoEffectInstant"];
-//    [self.filterArray addObject:filter2];
-//    
-//    self.camera.filterArray = self.filterArray;
-    
-//    AVCaptureVideoPreviewLayer *prev = [AVCaptureVideoPreviewLayer layerWithSession:self.camera.session];
-//    prev.frame = self.view.bounds;
-//    prev.videoGravity = AVLayerVideoGravityResizeAspectFill;
-//    
-//    [self.view.layer addSublayer:prev];
     
 }
 
@@ -141,6 +124,9 @@
             
             
             self.takePhotosView = [[INCameraTakePhotosView alloc] initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 80.0) / 2.0, [UIScreen mainScreen].bounds.size.height - 20.0 - 80.0, 80.0 , 80.0)];
+            if (@available(iOS 11.0, *)) {
+                self.takePhotosView.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - 80.0) / 2.0, [UIScreen mainScreen].bounds.size.height - 20.0 - 80.0 - self.view.safeAreaInsets.bottom, 80.0 , 80.0);
+            }
             self.takePhotosView.delegate = self;
             [self.view addSubview:self.takePhotosView];
             
@@ -152,10 +138,7 @@
             [self.view addSubview:self.descLabel];
             
             self.zoomSlider = [[INCameraZoomView alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(self.descLabel.frame) - 88.0, [UIScreen mainScreen].bounds.size.width, self.view.frame.size.height - (CGRectGetMinY(self.descLabel.frame) - 88.0) + 50)];
-            //            self.zoomSlider.maximumValue = 10.0;
-            //            self.zoomSlider.minimumValue = 1.0;
-            //            self.zoomSlider.value = 1.0;
-            //            [self.zoomSlider addTarget:self action:@selector(sliderOnSlide:) forControlEvents:UIControlEventTouchUpInside];
+            
             [self.zoomSlider addTarget:self action:@selector(sliderOnSlide:)];
             [self.view addSubview:self.zoomSlider];
             
@@ -215,13 +198,8 @@
             effectiveScale = maxScaleAndCropFactor;
         }
         
-        NSLog(@"%f",effectiveScale);
         
         self.zoomSlider.value = effectiveScale;
-//        self.zoomSlider.value = effectiveScale;
-//        [[self.camera.captureVideoInput connectionWithMediaType:AVMediaTypeVideo] setVideoScaleAndCropFactor:effectiveScale];
-        
-        
     }
     
 }
@@ -267,21 +245,6 @@
     [self.camera setFocusMode:AVCaptureFocusModeAutoFocus exposureMode:AVCaptureExposureModeAutoExpose interestPoint:cameraPoint];
     
 }
-//
-//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-//    
-//    UITouch *touch = touches.anyObject;
-//    if (touch) {
-//        CGPoint point = [touch locationInView:self.view];
-//        
-//        if (CGRectContainsPoint(self.takePhotosView.frame, point)) {
-//            return;
-//        }
-//        
-//        [self setFocusPoint:point];
-//    }
-//    
-//}
 
 #pragma mark - gesture delegate
 
@@ -365,7 +328,7 @@
 
 #pragma mark - preview delegate
 
--(void)didClickSendBtn:(INCameraPreviewView *)previewView{
+-(void)didClickSendBtn:(INCameraPreviewView *)previewView {
     if (previewView == self.photoPreviewer) {
         if (self.delegate && [self.delegate conformsToProtocol:@protocol(INPickerCameraViewControllerDelegate)] && [self.delegate respondsToSelector:@selector(cameraController:didFinishSelectPhotos:)]) {
             [self.delegate cameraController:self didFinishSelectPhotos:previewView.image];
@@ -386,7 +349,6 @@
         self.moviePreviewer.hidden = YES;
         [self.moviePreviewer pause];
     }
-//    [self.camera startSession];
 }
 
 #pragma mark - take photos delegate
@@ -402,7 +364,6 @@
         [self removeTimer];
         
         [self.camera stopRecrding];
-//        [self.camera stopSession];
         self.descLabel.text = @"请稍后";
     }
 }
@@ -414,7 +375,6 @@
         ws.takePhotosView.userInteractionEnabled = YES;
         ws.photoPreviewer.hidden = NO;
         ws.photoPreviewer.image = result;
-//        [ws.camera stopSession];
     }];
 }
 
@@ -444,54 +404,39 @@ static CGFloat previewAspect;
 -(void)cameraOutputVideo:(AVCaptureOutput *)captureOutput didOutputImageBuffer:(CIImage *)sourceImage fromConnection:(AVCaptureConnection *)connection{
     
     
-        if (sourceImage) {
-//            sourceImage = [CIImage imageWithCVImageBuffer:imageBuffer];
-            sourceExtent = sourceImage.extent;
-            
-            sourceAspect = sourceExtent.size.width / sourceExtent.size.height;
-            previewAspect = previewBounds.size.width / previewBounds.size.height;
-            
-            CGRect drawRect = sourceExtent;
-            
-            if (sourceAspect > previewAspect) {
-                drawRect.origin.x += (drawRect.size.width - drawRect.size.height * previewAspect) / 2.0;
-                drawRect.size.width = drawRect.size.height * previewAspect;
-            } else {
-                drawRect.origin.y += (drawRect.size.height - drawRect.size.width / previewAspect) / 2.0;
-                drawRect.size.height = drawRect.size.width / previewAspect;
-            }
-            
-            [self.previewView bindDrawable];
-            //
-//            if ([EAGLContext currentContext] != context) {
-                [EAGLContext setCurrentContext:context];
-//            }
-            
-            glClearColor(0.5, 0.5, 0.5, 1.0);
-            glClear(GL_COLOR_BUFFER_BIT);
-            glEnable(GL_BLEND);
-            glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-            //
-//            [ciContext drawImage:sourceImage inRect:previewBounds fromRect:drawRect];
-            
-//            INCameraFilter *filter = [[INCameraFilter alloc] initWithFilterName:@"CIVignetteEffect"];
-//            filter.sourceImage = sourceImage;
-//            filter.center = CGPointMake(sourceExtent.size.width / 2.0, sourceExtent.size.height / 2.0);
-//            filter.radius = sourceExtent.size.width * 0.5;
-//            [ciContext drawImage:filter.outputImage inRect:previewBounds fromRect:drawRect];
-//            
-//
-            
-            
-            
-            
-//
-            [ciContext drawImage:sourceImage inRect:previewBounds fromRect:drawRect];
-            
-            
-            [self.previewView display];
-            
+    if (sourceImage) {
+        sourceExtent = sourceImage.extent;
+        
+        sourceAspect = sourceExtent.size.width / sourceExtent.size.height;
+        previewAspect = previewBounds.size.width / previewBounds.size.height;
+        
+        CGRect drawRect = sourceExtent;
+        
+        if (sourceAspect > previewAspect) {
+            drawRect.origin.x += (drawRect.size.width - drawRect.size.height * previewAspect) / 2.0;
+            drawRect.size.width = drawRect.size.height * previewAspect;
+        } else {
+            drawRect.origin.y += (drawRect.size.height - drawRect.size.width / previewAspect) / 2.0;
+            drawRect.size.height = drawRect.size.width / previewAspect;
         }
+        
+        [self.previewView bindDrawable];
+        
+        if ([EAGLContext currentContext] != context) {
+            [EAGLContext setCurrentContext:context];
+        }
+        
+        glClearColor(0.5, 0.5, 0.5, 1.0);
+        glClear(GL_COLOR_BUFFER_BIT);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+        
+        [ciContext drawImage:sourceImage inRect:previewBounds fromRect:drawRect];
+        
+        
+        [self.previewView display];
+        
+    }
     
     
 }
@@ -529,13 +474,13 @@ static CGFloat previewAspect;
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

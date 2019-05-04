@@ -69,7 +69,7 @@
 		CBDA50BE1E4ACF1C0031CD92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBE3253B1E515C1F00B05F67 /* INCameraFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INCameraFilter.h; sourceTree = "<group>"; };
 		CBE3253C1E515C1F00B05F67 /* INCameraFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INCameraFilter.m; sourceTree = "<group>"; };
-		CBE3253E1E51618600B05F67 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		CBE3253E1E51618600B05F67 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CBE325401E5187DD00B05F67 /* INCameraZoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INCameraZoomView.h; sourceTree = "<group>"; };
 		CBE325411E5187DD00B05F67 /* INCameraZoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INCameraZoomView.m; sourceTree = "<group>"; };
 		EEB72040850591013FA62A3A /* Pods-PickerCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickerCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickerCamera/Pods-PickerCamera.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +94,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F59D3E3227D854F00944F3D /* PickerCamera */ = {
+			isa = PBXGroup;
+			children = (
+				4F59D3E6227D857300944F3D /* Manager */,
+				4F59D3E5227D856500944F3D /* View */,
+				4F59D3E4227D855A00944F3D /* ViewController */,
+			);
+			path = PickerCamera;
+			sourceTree = "<group>";
+		};
+		4F59D3E4227D855A00944F3D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB9ED8161E4D5F6300175738 /* INPickerCameraViewController.h */,
+				CB9ED8171E4D5F6300175738 /* INPickerCameraViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4F59D3E5227D856500944F3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB9ED8221E4DAEF300175738 /* INCameraTakePhotosView.h */,
+				CB9ED8231E4DAEF300175738 /* INCameraTakePhotosView.m */,
+				CBE325401E5187DD00B05F67 /* INCameraZoomView.h */,
+				CBE325411E5187DD00B05F67 /* INCameraZoomView.m */,
+				CB9ED81C1E4D9E5200175738 /* INCameraCursor.h */,
+				CB9ED81D1E4D9E5300175738 /* INCameraCursor.m */,
+				CB9ED8251E4DBAF400175738 /* INCameraPreviewView.h */,
+				CB9ED8261E4DBAF400175738 /* INCameraPreviewView.m */,
+				CB9ED8281E4DD45B00175738 /* INCameraMoviePreviewView.h */,
+				CB9ED8291E4DD45B00175738 /* INCameraMoviePreviewView.m */,
+				CB9ED81F1E4DA1B900175738 /* INCameraTop.h */,
+				CB9ED8201E4DA1B900175738 /* INCameraTop.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F59D3E6227D857300944F3D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CB9ED8191E4D629800175738 /* INPickerCamera.h */,
+				CB9ED81A1E4D629800175738 /* INPickerCamera.m */,
+				CBE3253B1E515C1F00B05F67 /* INCameraFilter.h */,
+				CBE3253C1E515C1F00B05F67 /* INCameraFilter.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		54187010AAD1552962678D33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,24 +184,7 @@
 		CBDA50A11E4ACF1C0031CD92 /* PickerCamera */ = {
 			isa = PBXGroup;
 			children = (
-				CB9ED81C1E4D9E5200175738 /* INCameraCursor.h */,
-				CB9ED81D1E4D9E5300175738 /* INCameraCursor.m */,
-				CB9ED8251E4DBAF400175738 /* INCameraPreviewView.h */,
-				CB9ED8261E4DBAF400175738 /* INCameraPreviewView.m */,
-				CB9ED8281E4DD45B00175738 /* INCameraMoviePreviewView.h */,
-				CB9ED8291E4DD45B00175738 /* INCameraMoviePreviewView.m */,
-				CB9ED81F1E4DA1B900175738 /* INCameraTop.h */,
-				CB9ED8201E4DA1B900175738 /* INCameraTop.m */,
-				CB9ED8191E4D629800175738 /* INPickerCamera.h */,
-				CB9ED81A1E4D629800175738 /* INPickerCamera.m */,
-				CB9ED8221E4DAEF300175738 /* INCameraTakePhotosView.h */,
-				CB9ED8231E4DAEF300175738 /* INCameraTakePhotosView.m */,
-				CBE3253B1E515C1F00B05F67 /* INCameraFilter.h */,
-				CBE3253C1E515C1F00B05F67 /* INCameraFilter.m */,
-				CBE325401E5187DD00B05F67 /* INCameraZoomView.h */,
-				CBE325411E5187DD00B05F67 /* INCameraZoomView.m */,
-				CB9ED8161E4D5F6300175738 /* INPickerCameraViewController.h */,
-				CB9ED8171E4D5F6300175738 /* INPickerCameraViewController.m */,
+				4F59D3E3227D854F00944F3D /* PickerCamera */,
 				CBDA50A51E4ACF1C0031CD92 /* AppDelegate.h */,
 				CBDA50A61E4ACF1C0031CD92 /* AppDelegate.m */,
 				CBDA50A81E4ACF1C0031CD92 /* ViewController.h */,
@@ -236,7 +268,7 @@
 				TargetAttributes = {
 					CBDA509E1E4ACF1C0031CD92 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = S429W65P38;
+						DevelopmentTeam = 3JZ5FTDGK8;
 						ProvisioningStyle = Manual;
 					};
 					CBDA50B71E4ACF1C0031CD92 = {
@@ -251,6 +283,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -485,14 +518,14 @@
 			baseConfigurationReference = EEB72040850591013FA62A3A /* Pods-PickerCamera.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = S429W65P38;
+				DEVELOPMENT_TEAM = 3JZ5FTDGK8;
 				INFOPLIST_FILE = PickerCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.xunzong.era.EarthInstrusion.PickerCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8990fb34-91b9-4799-a2c5-8160249d8ce3";
-				PROVISIONING_PROFILE_SPECIFIER = 1206all;
+				PROVISIONING_PROFILE_SPECIFIER = all;
 			};
 			name = Debug;
 		};
